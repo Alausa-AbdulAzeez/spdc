@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "SUSE", serif;
+  scroll-behavior: smooth;
+}
+
+.app__container {
+  max-width: 1536px;
+}
+
+/* Gradients */
+.hero__gradient {
+  background: linear-gradient(67deg, #fcb201 -1% -1%, 83%, #1a1d1c 100%);
+}
+.contact__gradient {
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgb(255, 255, 255) 100%
+  );
+}
+
+.dna__gradient {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+.lifeat__gradient {
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(252, 178, 1, 1) 100%
+  );
+}
+/* End of  Gradients */
+
+.all_ease_out_300 {
+  transition-property: all;
+  transition-duration: 1000;
+  transition-timing-function: ease-in-out;
+}
+
+/* Animations */
+@keyframes slide-in-top {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceAndTilt {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  40% {
+    transform: translateY(-10px) rotate(-5deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+.bounce-tilt {
+  animation: bounceAndTilt 3s ease-in-out;
+  animation-iteration-count: 10; /* Runs for 3 iterations */
+}
+
+/* End of Animations */
+
+.hover-slide-in-top {
+  animation: none; /* No animation by default */
+}
+
+.group:hover .hover-slide-in-top {
+  animation: slide-in-top 0.4s ease-out forwards; /* Add animation on hover */
+}
+span {
+  content: "\27F6";
+}
+
+/* SCROLLBAR */
+
+/* SCROLL BAR STYLES */
+
+/* Define the scrollbar track and thumb styles */
+::-webkit-scrollbar {
+  width: 8px; /* Set the width of the scrollbar */
+}
+/* Define the scrollbar track and thumb styles */
+.listTypeColumn::-webkit-scrollbar {
+  width: 4px; /* Set the width of the scrollbar */
+}
+
+/* For horizontal scrollbar */
+::-webkit-scrollbar {
+  height: 8px; /* Set the height of the scrollbar */
+}
+/* For horizontal scrollbar */
+.listTypeColumn::-webkit-scrollbar {
+  height: 2px; /* Set the height of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #e5e5e5; /* Track color */
+  /* border-radius: 6px; */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b9b9b9; /* Thumb color */
+  border-radius: 6px;
+}
+
+/* Change thumb color on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #bebebe;
+}
+
+/* END OF SCROLLBAR STYLES */
+
+/* Hide scrollbar for Webkit browsers */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+/* Hide scrollbar */
+
