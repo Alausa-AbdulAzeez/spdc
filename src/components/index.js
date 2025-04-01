@@ -22,9 +22,15 @@ import SubpageHero from "./SubpageHero";
 import CustomInfoBlock from "./CustomInfoBlock";
 import CareerBlock from "./CareerBlock";
 import About from "./About";
+import ProjectsCarousel from "./ProjectsCarousel";
+import ServicesCarousel from "./ServicesCarousel";
+import Carousel from "./Carousel";
 
 export {
   About,
+  ProjectsCarousel,
+  ServicesCarousel,
+  Carousel,
   MobileMenu,
   CustomInfoBlock,
   CareerBlock,

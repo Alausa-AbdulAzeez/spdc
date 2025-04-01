@@ -18,9 +18,11 @@ import vision from "./vision.jpg";
 import sustainability1 from "./sustainability1.jpeg";
 import sustainability2 from "./sustainability2.jpg";
 import headerLogo from "./headerLogo.png";
+import footerLogo from "./footerLogo.png";
 
 export {
   aim,
+  footerLogo,
   headerLogo,
   mission,
   vision,
