@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  About,
   Contact,
   Disclaimer,
   Divider,
@@ -20,29 +21,32 @@ const Home = () => {
       {/* Hero section */}
       <Hero />
 
+      {/* About section */}
+      <About />
+
       {/* Insights section */}
       <Featured />
 
       {/* Divider */}
-      <Divider spacing="my-[32px]" />
+      {/* <Divider spacing="my-[32px]" /> */}
 
       {/* Solutions Section */}
-      <Solutions />
+      {/* <Solutions /> */}
 
       {/* Report */}
-      <RiskReport />
+      {/* <RiskReport /> */}
 
       {/* Lifestyle */}
-      <Lifestyle />
+      {/* <Lifestyle /> */}
 
       {/* Team */}
-      <Team />
+      {/* <Team /> */}
 
       {/* InfoBlock */}
-      <InfoBlock />
+      {/* <InfoBlock /> */}
 
       {/* Values */}
-      <Values />
+      {/* <Values /> */}
 
       {/* Contact */}
       <Contact />

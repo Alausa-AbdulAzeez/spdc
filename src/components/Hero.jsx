@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import Navbar from "./Navbar";
 
@@ -12,78 +11,105 @@ const images = [
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
+  const texts = ["Interior Design", "Construction", "Architectural Design"];
+  const isDragging = useRef(false);
+  const carouselRef = useRef(null);
 
+  // Auto-slide every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      nextImage();
+      if (!isDragging.current) {
+        handleNext();
+      }
     }, 5000);
     return () => clearInterval(interval);
   }, [index]);
 
-  const nextImage = () => {
+  // Calculate the width of each slide (100% of viewport width)
+  const handleNext = () => {
     setIndex((prev) => (prev + 1) % images.length);
   };
 
-  const prevImage = () => {
+  const handlePrev = () => {
     setIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  // Handle drag end to determine if we should change slides
+  const handleDragEnd = (e, info) => {
+    isDragging.current = false;
+    const threshold = 100; // Minimum drag distance to trigger slide change
+
+    if (info.offset.x > threshold) {
+      handlePrev();
+    } else if (info.offset.x < -threshold) {
+      handleNext();
+    }
   };
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
-      {/* Nav */}
       <Navbar nav={"transparent"} />
 
-      {/* Image Container with Overlay */}
+      {/* Image Carousel Container */}
       <div className="absolute inset-0">
-        <AnimatePresence>
-          <motion.img
-            key={images[index]}
-            src={images[index]}
-            alt="Hero"
-            className="absolute w-full h-full object-cover"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
-          />
-        </AnimatePresence>
-
-        {/* Black Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <motion.div
+          ref={carouselRef}
+          className="absolute flex h-full cursor-grab active:cursor-grabbing"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.1}
+          onDragStart={() => (isDragging.current = true)}
+          onDragEnd={handleDragEnd}
+          style={{
+            width: `${images.length * 100}vw`,
+            x: `calc(${-index * 100}vw)`,
+          }}
+          animate={{ x: `calc(${-index * 100}vw)` }}
+          transition={{
+            type: "spring",
+            damping: 30,
+            stiffness: 200,
+          }}
+        >
+          {images.map((img, i) => (
+            <div key={i} className="relative w-screen h-full shrink-0">
+              <img
+                src={img}
+                alt={`Hero slide ${i + 1}`}
+                className="absolute w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+            </div>
+          ))}
+        </motion.div>
       </div>
 
-      {/* Navigation Arrows */}
-      {/* <button
-        onClick={prevImage}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-transparent p-2 rounded-full text-white opacity-60"
-      >
-        <ChevronLeft />
-      </button>
-      <button
-        onClick={nextImage}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-transparent p-2 rounded-full text-white opacity-60"
-      >
-        <ChevronRight />
-      </button> */}
-
-      {/* Content on top of the image */}
-      <div className="h-full lg:h-[70%] w-full flex justify-center absolute">
+      {/* Overlay Content */}
+      <div className="h-full lg:h-[70%] w-full flex justify-center absolute pointer-events-none">
         <div className="app__container flex h-full w-full px-9 items-end lg:pb-0 pb-24 justify-between">
           <div className="flex items-center justify-start text-white text-center lg:px-6">
-            {/* Icon */}
             <div className="flex flex-col-reverse lg:flex-row gap-5 lg:gap-10">
               <div className="flex items-end">
-                <Icon
-                  icon={"iconamoon:arrow-down-2-thin"}
-                  className="w-10 h-10 text-white"
-                />
+                <a href="#about">
+                  <Icon
+                    icon="iconamoon:arrow-down-2-thin"
+                    className="w-10 h-10 text-white pointer-events-auto cursor-pointer"
+                  />
+                </a>
               </div>
 
-              {/* Property */}
-              <div className="">
-                <div className="text-3xl lg:text-5xl text-left mb-2 lg:mb-5">
-                  Interior Design
-                </div>
+              {/* Text Animation */}
+              <div>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-3xl lg:text-5xl text-left mb-2 lg:mb-5"
+                >
+                  {texts[index]}
+                </motion.div>
                 <div className="text-left text-sm tracking-widest font-light">
                   OUR SERVICES
                 </div>
@@ -91,8 +117,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Dots */}
-          <div className="flex space-x-4">
+          {/* Pagination Dots */}
+          <div className="flex space-x-4 pointer-events-auto z-10">
             {images.map((_, i) => (
               <button
                 key={i}

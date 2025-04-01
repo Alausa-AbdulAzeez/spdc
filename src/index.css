@@ -10,6 +10,11 @@
   scroll-behavior: smooth;
 }
 
+.montserrat-regular {
+  font-family: "Montserrat", serif;
+  font-weight: 400;
+}
+
 .app__container {
   max-width: 1536px;
 }

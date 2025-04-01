@@ -21,8 +21,10 @@ import NavDropdown from "./NavDropdown";
 import SubpageHero from "./SubpageHero";
 import CustomInfoBlock from "./CustomInfoBlock";
 import CareerBlock from "./CareerBlock";
+import About from "./About";
 
 export {
+  About,
   MobileMenu,
   CustomInfoBlock,
   CareerBlock,
