@@ -2,9 +2,12 @@ const About = () => {
   return (
     <section className="flex justify-center" id="about">
       {/* Main container */}
-      <section id="hero" className="py-28 lg:px-28 w-full app__container px-5">
+      <section
+        id="hero"
+        className="py-16 md:py-28 lg:px-28 w-full app__container px-5"
+      >
         {/* Summary */}
-        <div className="text-justify mb-[100px] w-full md:w-[90%] uppercase text-2xl leading-loose tracking-widest">
+        <div className="text-justify mb-[50px] md:mb-[100px] w-full md:w-[90%] uppercase text-lg md:text-2xl leading-loose tracking-widest">
           <strong>SMARTS Products Nigeria Plc</strong> (Listed on the Nigerian
           Stock Exchange) is a leading provider of customized real estate,
           warehousing and storage, transportation, global logistics, and supply
