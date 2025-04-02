@@ -4,7 +4,7 @@ const About = () => {
       {/* Main container */}
       <section id="hero" className="py-28 lg:px-28 w-full app__container px-5">
         {/* Summary */}
-        <div className="mb-[100px] w-[90%] uppercase text-2xl leading-loose tracking-widest">
+        <div className="text-justify mb-[100px] w-full md:w-[90%] uppercase text-2xl leading-loose tracking-widest">
           <strong>SMARTS Products Nigeria Plc</strong> (Listed on the Nigerian
           Stock Exchange) is a leading provider of customized real estate,
           warehousing and storage, transportation, global logistics, and supply
@@ -12,7 +12,7 @@ const About = () => {
         </div>
         {/* More */}
         <div className="flex">
-          <div className="flex-1 opacity-0">
+          <div className="flex-1 opacity-0 text-justify hidden md:flex">
             We help businesses navigate the complexities of the business world
             and position them to unlock their value. We provide creative
             logistics solutions with warehousing, distribution, e-commerce
@@ -20,7 +20,7 @@ const About = () => {
             drives our vision for excellence.
           </div>
           <div className="flex-1 ">
-            <div className="text-lg font-light italic">
+            <div className="text-lg font-light italic text-justify">
               {" "}
               We help businesses navigate the complexities of the business world
               and position them to unlock their value. We provide creative

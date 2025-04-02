@@ -1,12 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 // This implementation can be used for either ProjectsCarousel or ServicesCarousel
 // Just change the data array and the aspect ratio as needed
 
 const Carousel = ({
   items,
-  title = "Our Projects",
+  titleLink,
+  titleLinkText = "VIEW ALL",
+  title = "OUR PROJECTS",
   aspectRatio = "aspect-video", // Use "aspect-[3/4]" for Services
   showTextBeforeHover = false, // Set to true for Services
   sectionBackground = "bg-white", // Use "bg-gray-50" for Services
@@ -99,7 +102,17 @@ const Carousel = ({
         ref={containerRef}
         className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
       >
-        <h2 className="text-3xl font-semibold mb-8">{title}</h2>
+        <div className="flex items-center justify-between">
+          <h2 className="uppercase text-sm tracking-widest  font-semibold mb-8">
+            {title}
+          </h2>
+          <Link
+            to={titleLink}
+            className="hover:underline underline-offset-2 text-[12px] tracking-widest text-gray-400  mb-8 font-bold"
+          >
+            {titleLinkText}
+          </Link>
+        </div>
 
         {/* Carousel container */}
         <div className="relative">
