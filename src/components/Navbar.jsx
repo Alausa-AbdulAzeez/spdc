@@ -5,21 +5,14 @@ import {
   rightSideMenuLinks,
   subsidiaries,
 } from "../utils/data";
-import { Link, NavLink, useLocation } from "react-router-dom";
-import { equiserveLogo, headerLogo } from "../assets/images";
+import { Link, NavLink } from "react-router-dom";
+import { headerLogo } from "../assets/images";
 import { AnimatePresence, motion } from "framer-motion";
 import MobileMenu from "./MobileMenu";
-import { Icon } from "@iconify/react";
-import { analytics, searchNormal } from "../assets/icons";
-import FAQCard from "./FAQCard";
-import { h1 } from "framer-motion/client";
+import { analytics } from "../assets/icons";
 import NavDropdown from "./NavDropdown";
 
 const Navbar = ({ nav }) => {
-  const isActive = false;
-
-  const location = useLocation();
-
   // Selected Subsidiary
   const [selectedItem, setSelectedItem] = useState(null);
 
@@ -344,9 +337,7 @@ const NavbarLinkItem = ({ title, url, isActive, handleClick }) => {
     <div
       onClick={handleClick}
       className={`${
-        isActive
-          ? "underline underline-offset-2"
-          : "text-white text-[16px] font-semibold"
+        isActive ? "text-neutral-300" : "text-white text-[16px] font-semibold"
       } hover:opacity-50  w-fit cursor-pointer flex items-center relative text-left transition-all duration-200 ease-linear group`}
     >
       <div className={`${isActive ? "font-semibold" : "font-semibold"} `}>

@@ -89,6 +89,10 @@ const App = () => {
         />
         {/* End of About Page */}
 
+        {/* Company Page */}
+        <Route path="/company" element={<About />} />
+        {/* End of Company Page */}
+
         {/* About Page/leadership*/}
         <Route
           path="/about/leadership"
