@@ -2,16 +2,46 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import Navbar from "./Navbar";
+import {
+  hero1,
+  hero10,
+  hero2,
+  hero3,
+  hero4,
+  hero5,
+  hero6,
+  hero7,
+  hero8,
+  hero9,
+} from "../assets/images";
 
 const images = [
-  "https://zulufish.wpenginepowered.com/wp-content/uploads/2024/02/81_WOODSTOCK_ROAD_33-2048x1365.jpg",
-  "https://zulufish.wpenginepowered.com/wp-content/uploads/2024/02/20220721-WavendonAv-252-2048x1332.jpg",
-  "https://zulufish.wpenginepowered.com/wp-content/uploads/2024/03/bedroom-CS-2048x1363.jpg",
+  hero1,
+  hero2,
+  hero3,
+  hero4,
+  hero5,
+  hero6,
+  hero7,
+  hero8,
+  hero9,
+  hero10,
 ];
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
-  const texts = ["Interior Design", "Construction", "Architectural Design"];
+  const texts = [
+    "Architectural Design",
+    "Design & Build",
+    "Interior Design",
+    "Construction",
+    "Timeless Luxury Glamour",
+    "Elegant Contemporary Stylish",
+    "Dramatic Modern Chic",
+    "Dark Luxurious Sophisticated",
+    "Contemporary Serene Textural",
+    "Modern Vibrant Jewel",
+  ];
   const isDragging = useRef(false);
   const carouselRef = useRef(null);
 

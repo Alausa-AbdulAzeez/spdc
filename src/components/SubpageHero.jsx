@@ -3,6 +3,7 @@ const SubpageHero = ({ bgImage, config }) => {
     backgroundImage: `url(${bgImage})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
+    filter: `grayscale(100%)`,
   };
 
   return (

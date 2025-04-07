@@ -1,19 +1,21 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Footer, Navbar, SubpageHero } from "../components";
+import { ceo, essense, essesce2 } from "../assets/images";
 
 const About = () => {
   const [pageConfig, setPageConfig] = useState({
-    bgImage:
-      "https://images.pexels.com/photos/24847334/pexels-photo-24847334/free-photo-of-cranes-between-skyscrapers-in-city.jpeg?auto=compress&cs=tinysrgb&w=1260",
+    bgImage2: essense,
+    bgImage: essesce2,
     header: "About Us",
   });
 
   // Refs for each section
   const ourStoryRef = useRef(null);
   const ourVisionRef = useRef(null);
+  const ourEssenceRef = useRef(null);
   const ourTeamRef = useRef(null);
+  const timelineRef = useRef(null);
   const ourValuesRef = useRef(null);
-  const parallaxRef = useRef(null);
 
   // Active section tracker
   const [activeSection, setActiveSection] = useState("our-story");
@@ -35,25 +37,22 @@ const About = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100; // Adding offset for better UX
 
-      // Update scrollY for parallax effect
-      setScrollY(window.scrollY);
-
       // Check each section's position
       if (
-        ourValuesRef.current &&
-        scrollPosition >= ourValuesRef.current.offsetTop
-      ) {
-        setActiveSection("our-values");
-      } else if (
         ourTeamRef.current &&
         scrollPosition >= ourTeamRef.current.offsetTop
       ) {
         setActiveSection("our-team");
       } else if (
-        ourVisionRef.current &&
-        scrollPosition >= ourVisionRef.current.offsetTop
+        timelineRef.current &&
+        scrollPosition >= timelineRef.current.offsetTop
       ) {
-        setActiveSection("our-Vision");
+        setActiveSection("timeline");
+      } else if (
+        ourEssenceRef.current &&
+        scrollPosition >= ourEssenceRef.current.offsetTop
+      ) {
+        setActiveSection("our-essence");
       } else if (
         ourStoryRef.current &&
         scrollPosition >= ourStoryRef.current.offsetTop
@@ -95,14 +94,25 @@ const About = () => {
               </button>
 
               <button
-                onClick={() => scrollToSection(ourVisionRef, "our-Vision")}
+                onClick={() => scrollToSection(ourEssenceRef, "our-essence")}
                 className={`whitespace-nowrap px-4 py-2 font-medium transition-all duration-200 ${
-                  activeSection === "our-Vision"
+                  activeSection === "our-essence"
                     ? "border-b-2 border-black text-black"
                     : "text-gray-500 hover:text-black"
                 }`}
               >
-                Our Vision
+                Our Essence
+              </button>
+
+              <button
+                onClick={() => scrollToSection(timelineRef, "timeline")}
+                className={`whitespace-nowrap px-4 py-2 font-medium transition-all duration-200 ${
+                  activeSection === "timeline"
+                    ? "border-b-2 border-black text-black"
+                    : "text-gray-500 hover:text-black"
+                }`}
+              >
+                Timeline
               </button>
 
               <button
@@ -114,17 +124,6 @@ const About = () => {
                 }`}
               >
                 Our Team
-              </button>
-
-              <button
-                onClick={() => scrollToSection(ourValuesRef, "our-values")}
-                className={`whitespace-nowrap px-4 py-2 font-medium transition-all duration-200 ${
-                  activeSection === "our-values"
-                    ? "border-b-2 border-black text-black"
-                    : "text-gray-500 hover:text-black"
-                }`}
-              >
-                Our Values
               </button>
             </div>
           </div>
@@ -181,11 +180,14 @@ const About = () => {
         </section>
 
         {/* Title */}
-        <div className="my-36 uppercase tracking-widest w-full font-bold  text-[36px] sm:text-[42px] xl:text-[50px] leading-[46px] sm:leading-[48px] lg:leading-[56px] text-center">
+        <div
+          ref={ourEssenceRef}
+          className="my-36 uppercase tracking-widest w-full font-bold  text-[36px] sm:text-[42px] xl:text-[50px] leading-[46px] sm:leading-[48px] lg:leading-[56px] text-center"
+        >
           Our Essence
         </div>
         {/* Our Vision Section */}
-        <section ref={ourVisionRef} className="mb-24">
+        <section className="mb-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <h2 className="text-3xl font-bold mb-8">Our Vision</h2>
             <div>
@@ -199,7 +201,7 @@ const About = () => {
         </section>
 
         {/* Our Values Section */}
-        <section ref={ourValuesRef}>
+        <section>
           <h2 className="text-3xl font-bold mb-8">Our Values</h2>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {/* Service Value */}
@@ -289,49 +291,174 @@ const About = () => {
         </section>
 
         {/* Parallax Image Section */}
-        <section
-          ref={parallaxRef}
-          className="relative h-96 w-full overflow-hidden my-24"
-        >
-          <div
-            className="absolute inset-0 bg-center bg-no-repeat bg-cover"
-            style={{
-              backgroundImage: `url(https://images.pexels.com/photos/8134762/pexels-photo-8134762.jpeg?auto=compress&cs=tinysrgb&w=1260)`,
-              transform: `translateY(${scrollY * 0.3}px)`,
-            }}
-          >
-            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-              <div className="text-center text-white px-4">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                  Excellence in Action
-                </h2>
-                <div className="w-20 h-1 bg-white mx-auto mb-6"></div>
-                <p className="text-xl md:text-2xl max-w-2xl mx-auto">
-                  We're committed to delivering exceptional results through
-                  innovative solutions
-                </p>
+        <div
+          className="my-36 rounded-3xl relative h-[500px] overflow-hidden bg-fixed bg-center bg-cover flex items-center justify-center"
+          style={{
+            backgroundImage: `url(${pageConfig.bgImage2})`,
+            filter: `grayscale(100%)`,
+          }}
+        ></div>
+
+        <section ref={timelineRef} className="mb-24">
+          <h2 className="text-3xl font-bold mb-8">Timeline</h2>
+
+          <div className="relative">
+            {/* Vertical Line */}
+            <div className="absolute left-4 sm:left-6 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-gray-300"></div>
+
+            {/* Timeline Items */}
+            <div className="space-y-12">
+              {/* 1966 */}
+              <div className="flex flex-col md:flex-row items-start">
+                <div className="flex flex-col md:w-1/2 md:pr-8 md:text-right pl-16 sm:pl-20 md:pl-0 order-2 md:order-1">
+                  <h3 className="text-xl font-bold mb-1">1966</h3>
+                  <p className="text-gray-700">
+                    Founded as Associated Press Limited ("AP")
+                  </p>
+                </div>
+                <div className="absolute left-4 sm:left-6 md:left-1/2 transform md:-translate-x-1/2 order-1 md:order-2 flex items-center justify-center">
+                  <div className="bg-blue-800 w-5 h-5 rounded-full z-10 shadow-md"></div>
+                </div>
+                <div className="md:w-1/2 md:pl-8 order-3 hidden md:block"></div>
+              </div>
+
+              {/* 1970 */}
+              <div className="flex flex-col md:flex-row items-start">
+                <div className="md:w-1/2 md:pr-8 order-1 hidden md:block"></div>
+                <div className="absolute left-4 sm:left-6 md:left-1/2 transform md:-translate-x-1/2 order-2 flex items-center justify-center">
+                  <div className="bg-blue-800 w-5 h-5 rounded-full z-10 shadow-md"></div>
+                </div>
+                <div className="flex flex-col md:w-1/2 md:pl-8 pl-16 sm:pl-20 order-3">
+                  <h3 className="text-xl font-bold mb-1">1970</h3>
+                  <p className="text-gray-700">
+                    Listed on the Nigerian Stock Exchange
+                  </p>
+                </div>
+              </div>
+
+              {/* 1987 */}
+              <div className="flex flex-col md:flex-row items-start">
+                <div className="flex flex-col md:w-1/2 md:pr-8 md:text-right pl-16 sm:pl-20 md:pl-0 order-2 md:order-1">
+                  <h3 className="text-xl font-bold mb-1">1987</h3>
+                  <p className="text-gray-700">
+                    Acquired by SMURFIT Kappa, a FTSE 100 company
+                  </p>
+                </div>
+                <div className="absolute left-4 sm:left-6 md:left-1/2 transform md:-translate-x-1/2 order-1 md:order-2 flex items-center justify-center">
+                  <div className="bg-blue-800 w-5 h-5 rounded-full z-10 shadow-md"></div>
+                </div>
+                <div className="md:w-1/2 md:pl-8 order-3 hidden md:block"></div>
+              </div>
+
+              {/* 1988 */}
+              <div className="flex flex-col md:flex-row items-start">
+                <div className="md:w-1/2 md:pr-8 order-1 hidden md:block"></div>
+                <div className="absolute left-4 sm:left-6 md:left-1/2 transform md:-translate-x-1/2 order-2 flex items-center justify-center">
+                  <div className="bg-blue-800 w-5 h-5 rounded-full z-10 shadow-md"></div>
+                </div>
+                <div className="flex flex-col md:w-1/2 md:pl-8 pl-16 sm:pl-20 order-3">
+                  <h3 className="text-xl font-bold mb-1">1988</h3>
+                  <p className="text-gray-700">
+                    Change of Name to SMURFIT Nigeria Plc
+                  </p>
+                </div>
+              </div>
+
+              {/* 1995-2005 */}
+              <div className="flex flex-col md:flex-row items-start">
+                <div className="flex flex-col md:w-1/2 md:pr-8 md:text-right pl-16 sm:pl-20 md:pl-0 order-2 md:order-1">
+                  <h3 className="text-xl font-bold mb-1">1995 – 2005</h3>
+                  <p className="text-gray-700">
+                    Partial Divestment of SMURFIT Kappa
+                  </p>
+                </div>
+                <div className="absolute left-4 sm:left-6 md:left-1/2 transform md:-translate-x-1/2 order-1 md:order-2 flex items-center justify-center">
+                  <div className="bg-blue-800 w-5 h-5 rounded-full z-10 shadow-md"></div>
+                </div>
+                <div className="md:w-1/2 md:pl-8 order-3 hidden md:block"></div>
+              </div>
+
+              {/* 2005 */}
+              <div className="flex flex-col md:flex-row items-start">
+                <div className="md:w-1/2 md:pr-8 order-1 hidden md:block"></div>
+                <div className="absolute left-4 sm:left-6 md:left-1/2 transform md:-translate-x-1/2 order-2 flex items-center justify-center">
+                  <div className="bg-blue-800 w-5 h-5 rounded-full z-10 shadow-md"></div>
+                </div>
+                <div className="flex flex-col md:w-1/2 md:pl-8 pl-16 sm:pl-20 order-3">
+                  <h3 className="text-xl font-bold mb-1">2005</h3>
+                  <p className="text-gray-700">
+                    Change of Name to Smart Products Nigeria Plc
+                  </p>
+                </div>
+              </div>
+
+              {/* 2022 */}
+              <div className="flex flex-col md:flex-row items-start">
+                <div className="flex flex-col md:w-1/2 md:pr-8 md:text-right pl-16 sm:pl-20 md:pl-0 order-2 md:order-1">
+                  <h3 className="text-xl font-bold mb-1">2022</h3>
+                  <p className="text-gray-700">
+                    Company was acquired by Globevest Capital Partners
+                  </p>
+                </div>
+                <div className="absolute left-4 sm:left-6 md:left-1/2 transform md:-translate-x-1/2 order-1 md:order-2 flex items-center justify-center">
+                  <div className="bg-blue-800 w-5 h-5 rounded-full z-10 shadow-md"></div>
+                </div>
+                <div className="md:w-1/2 md:pl-8 order-3 hidden md:block"></div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Our Team Section */}
         <section ref={ourTeamRef} className="mb-24">
           <h2 className="text-3xl font-bold mb-8">Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[1, 2, 3, 4].map((item) => (
-              <div
-                key={item}
-                className="bg-gray-100 rounded-lg p-6 text-center"
-              >
-                <div className="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4"></div>
-                <h3 className="font-bold text-xl mb-2">Team Member {item}</h3>
-                <p className="text-gray-600 mb-4">Position</p>
-                <p className="text-sm text-gray-500">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-              </div>
-            ))}
+          <div className="flex flex-col md:flex-row gap-8">
+            <div className="bg-gray-200 min-w-[300px] h-auto rounded-lg order-last lg:order-first overflow-hidden">
+              <img src={ceo} alt="ceo" className="grayscale" />
+            </div>
+            <div>
+              <p className="text-gray-700 leading-relaxed  font-semibold text-2xl">
+                Olanrewaju Ogunlana
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-6 italic text-lg">
+                CEO/Executive Director
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                Olanrewaju is a very experienced investment banker and capital
+                market professional. He holds a BSc (Hons) degree in Economics
+                from Bowen University, Iwo (2008) and has over 13 years of
+                working experience spanning Investment Banking, Pension Fund
+                Administration, Insurance, Risk Management, and Securities
+                Dealing.
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                Pellentesque habitant morbi tristique senectus et netus et
+                malesuada fames ac turpis egestas. Vestibulum tortor quam,
+                feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu
+                libero sit amet quam egestas semper.
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                He is currently the CEO of SMARTS Products Plc, prior to joining
+                SMARTS Products, he was the Group Head of Business Development
+                at Afrinvest (West Africa) Limited. He was also a Senior
+                Associate at Afrinvest Capital Limited, leading deal
+                origination, execution and sales. Before joining Afrinvest, he
+                was an Assistant Manager and Corporate Finance Team lead at AT&A
+                Capital Limited. He was previously the Investment Banking Team
+                Lead at MorganCapital’s Investment Banking Group and Chief Risk
+                Officer at MorganCapital Securities Limited, where he anchored
+                fundraising activities of the Investment Banking group and
+                spearheaded enterprise risk management and reduction in business
+                risks.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                In the past 12 years, he has participated in fundraising
+                programs that assisted State Governments and corporations in
+                raising over N400bn. He has also assisted numerous private
+                sector organizations in accessing funds from the Capital Market.
+                He has very strong contacts with many African-focused & emerging
+                markets investors/fund managers
+              </p>
+            </div>
           </div>
         </section>
       </div>
