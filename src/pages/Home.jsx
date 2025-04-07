@@ -18,6 +18,16 @@ import {
   Team,
   Values,
 } from "../components";
+import {
+  services1,
+  services2,
+  services3,
+  services4,
+  services5,
+  services6,
+  smartTowers,
+  victoriaCourt,
+} from "../assets/images";
 
 const Home = () => {
   return (
@@ -33,38 +43,15 @@ const Home = () => {
         items={[
           {
             id: 1,
-            title: "Woodstock Road",
-            subtitle: "Interior Design",
-            image:
-              "https://zulufish.wpenginepowered.com/wp-content/uploads/2024/02/81_WOODSTOCK_ROAD_33-2048x1365.jpg",
+            title: "Victoria Court",
+            subtitle: "Ilupeju",
+            image: victoriaCourt,
           },
           {
             id: 2,
-            title: "Wavendon Avenue",
-            subtitle: "Construction",
-            image:
-              "https://zulufish.wpenginepowered.com/wp-content/uploads/2024/02/20220721-WavendonAv-252-2048x1332.jpg",
-          },
-          {
-            id: 3,
-            title: "Chelsea Suite",
-            subtitle: "Architectural Design",
-            image:
-              "https://zulufish.wpenginepowered.com/wp-content/uploads/2024/03/bedroom-CS-2048x1363.jpg",
-          },
-          {
-            id: 4,
-            title: "Park View Residence",
-            subtitle: "Interior Design",
-            image:
-              "https://zulufish.wpenginepowered.com/wp-content/uploads/2024/02/81_WOODSTOCK_ROAD_33-2048x1365.jpg",
-          },
-          {
-            id: 5,
-            title: "Modern Apartment",
-            subtitle: "Construction",
-            image:
-              "https://zulufish.wpenginepowered.com/wp-content/uploads/2024/02/20220721-WavendonAv-252-2048x1332.jpg",
+            title: "Smart Towers",
+            subtitle: "Ikoyi",
+            image: smartTowers,
           },
         ]}
       />
@@ -92,38 +79,39 @@ const Home = () => {
         items={[
           {
             id: 1,
-            title: "Woodstock Road",
-            description: "Interior Design",
-            image:
-              "https://zulufish.wpenginepowered.com/wp-content/uploads/2024/02/81_WOODSTOCK_ROAD_33-2048x1365.jpg",
+            title: "Real Estate Development",
+            description: "",
+            image: services1,
           },
           {
             id: 2,
-            title: "Wavendon Avenue",
-            description: "Construction",
-            image:
-              "https://zulufish.wpenginepowered.com/wp-content/uploads/2024/02/20220721-WavendonAv-252-2048x1332.jpg",
+            title: "Digital Warehousing",
+            description: "",
+            image: services2,
           },
           {
             id: 3,
-            title: "Chelsea Suite",
-            description: "Architectural Design",
-            image:
-              "https://zulufish.wpenginepowered.com/wp-content/uploads/2024/03/bedroom-CS-2048x1363.jpg",
+            title: "Facility Management",
+            description: "",
+            image: services3,
           },
           {
             id: 4,
-            title: "Park View Residence",
-            description: "Interior Design",
-            image:
-              "https://zulufish.wpenginepowered.com/wp-content/uploads/2024/02/81_WOODSTOCK_ROAD_33-2048x1365.jpg",
+            title: "Finance",
+            description: "",
+            image: services4,
           },
           {
             id: 5,
-            title: "Modern Apartment",
-            description: "Construction",
-            image:
-              "https://zulufish.wpenginepowered.com/wp-content/uploads/2024/02/20220721-WavendonAv-252-2048x1332.jpg",
+            title: "Logistics",
+            description: "",
+            image: services5,
+          },
+          {
+            id: 6,
+            title: "Hospitality",
+            description: "",
+            image: services6,
           },
         ]}
       />

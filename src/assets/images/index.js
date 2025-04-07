@@ -29,12 +29,28 @@ import hero7 from "./hero7.jpg";
 import hero8 from "./hero8.jpg";
 import hero9 from "./hero9.jpg";
 import hero10 from "./hero10.jpg";
+import smartTowers from "./smartTowers.jpg";
+import victoriaCourt from "./victoriaCourt.jpg";
+import services1 from "./services1.jpg";
+import services2 from "./services2.jpg";
+import services3 from "./services3.jpg";
+import services4 from "./services4.jpg";
+import services5 from "./services5.jpg";
+import services6 from "./services6.jpg";
 import headerLogo from "./headerLogo.png";
 import footerLogo from "./footerLogo.png";
 import ceo from "./ceo.png";
 
 export {
   aim,
+  services1,
+  services2,
+  services3,
+  services4,
+  services5,
+  services6,
+  smartTowers,
+  victoriaCourt,
   hero1,
   hero2,
   hero3,
