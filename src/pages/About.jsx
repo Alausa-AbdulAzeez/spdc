@@ -81,7 +81,7 @@ const About = () => {
       <div className="sticky top-0 z-20 bg-white shadow">
         <div className="app__container px-5 lg:px-[48px]">
           <div className="flex overflow-x-auto scrollbar-hide">
-            <div className="flex space-x-8 py-4 w-full justify-center">
+            <div className="flex space-x-8 py-4 w-full justify-start">
               <button
                 onClick={() => scrollToSection(ourStoryRef, "our-story")}
                 className={`whitespace-nowrap px-4 py-2 font-medium transition-all duration-200 ${
