@@ -12,6 +12,7 @@ import {
 import GeneralLayout from "./layouts/GeneralLayout";
 import Solution from "./pages/Solution";
 import Insights from "./pages/Insights";
+import { Contact } from "./components";
 
 const App = () => {
   return (
@@ -30,6 +31,10 @@ const App = () => {
         {/* Services Page */}
         <Route path="/services" element={<Services />} />
         {/* End of Services Page */}
+
+        {/* Contact Page */}
+        <Route path="/contact" element={<Contact />} />
+        {/* End of Contact Page */}
 
         {/* Undocumented routes */}
         <Route

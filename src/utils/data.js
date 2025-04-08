@@ -458,7 +458,7 @@ export const leftSideMenuLinks = [
     link: "",
   },
   { id: "Gallery", title: "Gallery", label: "Gallery", link: "" },
-  { id: "Contact", title: "Contact", label: "Contact", link: "" },
+  { id: "Contact", title: "Contact", label: "Contact", link: "/contact" },
   {
     id: "Join Our Team",
     title: "Join Our Team",

@@ -187,7 +187,7 @@ const Services = () => {
 
           {/* Parallax Image Section */}
           <div
-            className="my-36 rounded-3xl relative h-[500px] overflow-hidden bg-fixed bg-center bg-cover flex items-center justify-center"
+            className="my-20 lg:my-36 rounded-3xl relative h-[500px] overflow-hidden bg-fixed bg-center bg-cover flex items-center justify-center"
             style={{
               backgroundImage: `url(${services1})`,
               filter: `grayscale(100%)`,
@@ -227,7 +227,7 @@ const Services = () => {
 
           {/* Parallax Image Section */}
           <div
-            className="my-36 rounded-3xl relative h-[500px] overflow-hidden bg-fixed bg-center bg-cover flex items-center justify-center"
+            className="my-20 lg:my-36 rounded-3xl relative h-[500px] overflow-hidden bg-fixed bg-center bg-cover flex items-center justify-center"
             style={{
               backgroundImage: `url(${services2})`,
               filter: `grayscale(100%)`,
@@ -267,7 +267,7 @@ const Services = () => {
 
           {/* Parallax Image Section */}
           <div
-            className="my-36 rounded-3xl relative h-[500px] overflow-hidden bg-fixed bg-center bg-cover flex items-center justify-center"
+            className="my-20 lg:my-36 rounded-3xl relative h-[500px] overflow-hidden bg-fixed bg-center bg-cover flex items-center justify-center"
             style={{
               backgroundImage: `url(${services3})`,
               filter: `grayscale(100%)`,
@@ -300,7 +300,7 @@ const Services = () => {
           </section>
           {/* Parallax Image Section */}
           <div
-            className="my-36 rounded-3xl relative h-[500px] overflow-hidden bg-fixed bg-center bg-cover flex items-center justify-center"
+            className="my-20 lg:my-36 rounded-3xl relative h-[500px] overflow-hidden bg-fixed bg-center bg-cover flex items-center justify-center"
             style={{
               backgroundImage: `url(${services6})`,
               filter: `grayscale(100%)`,
