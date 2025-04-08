@@ -112,8 +112,8 @@ export const navbarData = [
   },
   {
     title: "Services",
-    url: "/ervices",
-    id: "ervices",
+    url: "/services",
+    id: "services",
     type: "newLink",
   },
   {
@@ -443,7 +443,7 @@ export const socialMedia = [
 
 export const leftSideMenuLinks = [
   { id: "Projects", title: "Projects", label: "Projects", link: "" },
-  { id: "AboutUs", title: "About Us", label: "About Us", link: "" },
+  { id: "AboutUs", title: "About Us", label: "About Us", link: "/about" },
   { id: "Awards", title: "Awards", label: "Awards", link: "" },
   {
     id: "Testimonials",

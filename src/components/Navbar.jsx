@@ -269,9 +269,12 @@ const Navbar = ({ nav }) => {
                     <div className="flex flex-col gap-6">
                       {leftSideMenuLinks?.map((item) => {
                         return (
-                          <div className="font-medium w-fit uppercase hover:text-slate-600 cursor-pointer tracking-widest">
+                          <Link
+                            to={item?.link}
+                            className="font-medium w-fit uppercase hover:text-slate-600 cursor-pointer tracking-widest"
+                          >
                             {item?.label}
-                          </div>
+                          </Link>
                         );
                       })}
                     </div>

@@ -104,39 +104,6 @@ span {
 
 /* SCROLL BAR STYLES */
 
-/* Define the scrollbar track and thumb styles */
-::-webkit-scrollbar {
-  width: 8px; /* Set the width of the scrollbar */
-}
-/* Define the scrollbar track and thumb styles */
-.listTypeColumn::-webkit-scrollbar {
-  width: 4px; /* Set the width of the scrollbar */
-}
-
-/* For horizontal scrollbar */
-::-webkit-scrollbar {
-  height: 8px; /* Set the height of the scrollbar */
-}
-/* For horizontal scrollbar */
-.listTypeColumn::-webkit-scrollbar {
-  height: 2px; /* Set the height of the scrollbar */
-}
-
-::-webkit-scrollbar-track {
-  background: #e5e5e5; /* Track color */
-  /* border-radius: 6px; */
-}
-
-::-webkit-scrollbar-thumb {
-  background: #b9b9b9; /* Thumb color */
-  border-radius: 6px;
-}
-
-/* Change thumb color on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #bebebe;
-}
-
 /* END OF SCROLLBAR STYLES */
 
 /* Hide scrollbar for Webkit browsers */

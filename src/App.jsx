@@ -6,6 +6,7 @@ import {
   Home,
   Leadership,
   PageNotFound,
+  Services,
   Sustainability,
 } from "./pages";
 import GeneralLayout from "./layouts/GeneralLayout";
@@ -18,102 +19,17 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
 
-        {/* Solutions Page */}
-        <Route
-          path="solutions/investmentBanking"
-          element={
-            <GeneralLayout>
-              <Solution />
-            </GeneralLayout>
-          }
-        />
-        <Route
-          path="solutions/investmentManagement"
-          element={
-            <GeneralLayout>
-              <Solution />
-            </GeneralLayout>
-          }
-        />
-        <Route
-          path="solutions/securitiesTrading"
-          element={
-            <GeneralLayout>
-              <Solution />
-            </GeneralLayout>
-          }
-        />
-        {/* End of Solutions Page */}
-
-        {/* Insights page */}
-        <Route
-          path="insights"
-          element={
-            <GeneralLayout>
-              <Insights />
-            </GeneralLayout>
-          }
-        />
-        {/* End of Insights page */}
-
-        {/* Careers Page */}
-        <Route
-          path="/careers"
-          element={
-            <GeneralLayout>
-              <Careers />
-            </GeneralLayout>
-          }
-        />
-        {/* End of careers Page */}
-
-        {/* Contact Page */}
-        <Route
-          path="/contact"
-          element={
-            <GeneralLayout>
-              <ContactPage />
-            </GeneralLayout>
-          }
-        />
-        {/* End of careers Page */}
-
         {/* About Page */}
-        <Route
-          path="/about"
-          element={
-            <GeneralLayout>
-              <About />
-            </GeneralLayout>
-          }
-        />
+        <Route path="/about" element={<About />} />
         {/* End of About Page */}
 
         {/* Company Page */}
         <Route path="/company" element={<About />} />
         {/* End of Company Page */}
 
-        {/* About Page/leadership*/}
-        <Route
-          path="/about/leadership"
-          element={
-            <GeneralLayout>
-              <Leadership />
-            </GeneralLayout>
-          }
-        />
-        {/* End of About Page/leadership */}
-
-        {/* About Page/sustainability*/}
-        <Route
-          path="/about/sustainability"
-          element={
-            <GeneralLayout>
-              <Sustainability />
-            </GeneralLayout>
-          }
-        />
-        {/* End of About Page/sustainability */}
+        {/* Services Page */}
+        <Route path="/services" element={<Services />} />
+        {/* End of Services Page */}
 
         {/* Undocumented routes */}
         <Route

@@ -37,12 +37,14 @@ import services3 from "./services3.jpg";
 import services4 from "./services4.jpg";
 import services5 from "./services5.jpg";
 import services6 from "./services6.jpg";
+import servicesHero from "./servicesHero.jpg";
 import headerLogo from "./headerLogo.png";
 import footerLogo from "./footerLogo.png";
 import ceo from "./ceo.png";
 
 export {
   aim,
+  servicesHero,
   services1,
   services2,
   services3,

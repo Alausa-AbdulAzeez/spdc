@@ -5,10 +5,12 @@ import ContactPage from "./ContactPage";
 import About from "./About";
 import Leadership from "./Leadership";
 import Sustainability from "./Sustainability";
+import Services from "./Services";
 
 export {
   Leadership,
   Sustainability,
+  Services,
   Home,
   PageNotFound,
   Careers,
