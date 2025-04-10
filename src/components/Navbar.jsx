@@ -82,18 +82,16 @@ const Navbar = ({
 
   // Close search menu menu
   const closeSearchMenu = (e, type, action, item) => {
-    console.log(e, type, action, item);
-
     // Prevent event bubbling
     e.stopPropagation();
 
     // Set search menu visibility state to true
     setIsSearchMenuOpen(false);
 
-    console.log(item?.id);
+    // For smaller screens
+    setIsMobileMenuOpen(false);
 
     setTimeout(() => {
-      console.log("scroll now", type, item?.id);
       if (type === "subSection") {
         if (item?.id === "RealEstate") {
           action(ourStoryRef, "our-story");
@@ -366,7 +364,8 @@ const Navbar = ({
         isOpen={isMobileMenuOpen}
         handleInputChange={handleInputChange}
         subsidiariesList={subsidiariesList}
-        toggleMenu={toggleMobileMenu}
+        toggleMenu={closeSearchMenu}
+        scrollToSection={scrollToSection}
         navbarData={navbarData}
       />
     </>

@@ -88,7 +88,20 @@ const App = () => {
         {/* End of Services Page */}
 
         {/* Contact Page */}
-        <Route path="/contact" element={<Contact />} />
+        <Route
+          path="/contact"
+          element={
+            <Contact
+              activeSection={activeSection}
+              ourEssenceRef={ourEssenceRef}
+              ourStoryRef={ourStoryRef}
+              ourTeamRef={ourTeamRef}
+              setActiveSection={setActiveSection}
+              timelineRef={timelineRef}
+              scrollToSection={scrollToSection}
+            />
+          }
+        />
         {/* End of Contact Page */}
 
         {/* Undocumented routes */}

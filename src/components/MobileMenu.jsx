@@ -11,7 +11,7 @@ import FAQCard from "./FAQCard";
 import { addCircle, searchNormal } from "../assets/icons";
 import { Icon } from "@iconify/react";
 
-const MobileMenu = ({ isOpen, toggleMenu }) => {
+const MobileMenu = ({ isOpen, toggleMenu, scrollToSection }) => {
   // Selected Subsidiary
   const [selectedItem, setSelectedItem] = useState(null);
 
@@ -19,7 +19,12 @@ const MobileMenu = ({ isOpen, toggleMenu }) => {
   const [selectedSubItem, setSelectedSubItem] = useState(null);
 
   // Function to handle the expansion and contraction of a section
-  const handleToggleSection = (item) => {
+  const handleToggleSection = (e, item) => {
+    e.preventDefault();
+
+    // Prevent event bubbling
+    e.stopPropagation();
+
     toggleMenu();
   };
   // End of unction to handle the expansion and contraction of a section
@@ -74,7 +79,8 @@ const MobileMenu = ({ isOpen, toggleMenu }) => {
                 return (
                   <Link
                     to={item?.link}
-                    onClick={() => handleToggleSection(item)}
+                    key={item?.id}
+                    onClick={(e) => toggleMenu(e)}
                     className="font-medium w-fit uppercase hover:text-slate-600 cursor-pointer tracking-widest"
                   >
                     {item?.label}
@@ -86,6 +92,7 @@ const MobileMenu = ({ isOpen, toggleMenu }) => {
             {/* Links */}
           </div>
           {/* RHS */}
+
           <div className="flex flex-col gap-8 justify-start items-start">
             {/* Title */}
             <div className="uppercase text-sm font-semibold tracking-widest text-gray-500">
@@ -95,7 +102,11 @@ const MobileMenu = ({ isOpen, toggleMenu }) => {
               {rightSideMenuLinks?.map((item) => {
                 return (
                   <Link
+                    key={item?.id}
                     to={item?.link}
+                    onClick={(e) =>
+                      toggleMenu(e, "subSection", scrollToSection, item)
+                    }
                     className="font-medium w-fit uppercase hover:text-slate-600 cursor-pointer tracking-widest"
                   >
                     {item?.label}
