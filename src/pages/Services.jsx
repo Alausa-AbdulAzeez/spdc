@@ -77,7 +77,14 @@ const Services = () => {
   return (
     <div className="z-10 relative bg-white">
       {/* Main navbar */}
-      <Navbar nav={"transparent"} />
+      <Navbar
+        nav={"transparent"}
+        ourStoryRef={ourStoryRef}
+        ourEssenceRef={ourEssenceRef}
+        ourTeamRef={ourTeamRef}
+        timelineRef={timelineRef}
+        scrollToSection={scrollToSection}
+      />
 
       {/* Hero section */}
       <SubpageHero
@@ -143,7 +150,11 @@ const Services = () => {
       <div className="w-full flex justify-center px-5 lg:px-[48px] ">
         <div className="app__container px-5 lg:px-[48px] py-16">
           {/* Real Estate Development Section */}
-          <section ref={ourStoryRef} className="mb-24">
+          <section
+            ref={ourStoryRef}
+            className="mb-24"
+            id="#realEstateDevelopment"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <h2 className="text-3xl font-bold mb-8">
                 Real Estate Development

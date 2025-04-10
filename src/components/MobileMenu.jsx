@@ -11,13 +11,7 @@ import FAQCard from "./FAQCard";
 import { addCircle, searchNormal } from "../assets/icons";
 import { Icon } from "@iconify/react";
 
-const MobileMenu = ({
-  isOpen,
-  toggleMenu,
-  navbarData,
-  subsidiariesList,
-  handleInputChange,
-}) => {
+const MobileMenu = ({ isOpen, toggleMenu }) => {
   // Selected Subsidiary
   const [selectedItem, setSelectedItem] = useState(null);
 
@@ -26,11 +20,7 @@ const MobileMenu = ({
 
   // Function to handle the expansion and contraction of a section
   const handleToggleSection = (item) => {
-    if (item?.id === selectedItem?.id) {
-      setSelectedItem(null);
-    } else {
-      setSelectedItem(item);
-    }
+    toggleMenu();
   };
   // End of unction to handle the expansion and contraction of a section
 
@@ -82,9 +72,13 @@ const MobileMenu = ({
             <div className="flex flex-col gap-6">
               {leftSideMenuLinks?.map((item) => {
                 return (
-                  <div className="font-medium w-fit uppercase hover:text-slate-600 cursor-pointer tracking-widest">
+                  <Link
+                    to={item?.link}
+                    onClick={() => handleToggleSection(item)}
+                    className="font-medium w-fit uppercase hover:text-slate-600 cursor-pointer tracking-widest"
+                  >
                     {item?.label}
-                  </div>
+                  </Link>
                 );
               })}
             </div>
@@ -100,9 +94,12 @@ const MobileMenu = ({
             <div className="flex flex-col gap-6">
               {rightSideMenuLinks?.map((item) => {
                 return (
-                  <div className="w-fit uppercase font-medium hover:text-slate-600 cursor-pointer tracking-widest">
+                  <Link
+                    to={item?.link}
+                    className="font-medium w-fit uppercase hover:text-slate-600 cursor-pointer tracking-widest"
+                  >
                     {item?.label}
-                  </div>
+                  </Link>
                 );
               })}
             </div>

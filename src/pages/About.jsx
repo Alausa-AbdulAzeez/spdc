@@ -68,7 +68,14 @@ const About = () => {
   return (
     <div className="z-10 relative bg-white">
       {/* Main navbar */}
-      <Navbar nav={"transparent"} />
+      <Navbar
+        nav={"transparent"}
+        ourStoryRef={ourStoryRef}
+        ourEssenceRef={ourEssenceRef}
+        ourTeamRef={ourTeamRef}
+        timelineRef={timelineRef}
+        scrollToSection={scrollToSection}
+      />
 
       {/* Hero section */}
       <SubpageHero
@@ -79,9 +86,9 @@ const About = () => {
 
       {/* Section Navigation */}
       <div className="w-full sticky top-0 z-20 bg-white flex justify-center shadow">
-        <div className="app__container px-5 lg:px-[48px]">
-          <div className="flex overflow-x-auto scrollbar-hide">
-            <div className="flex space-x-8 py-4 w-full md:justify-center justify-start">
+        <div className="app__container px-5 lg:px-[48px] w-full">
+          <div className="w-full">
+            <div className="flex space-x-8 py-4 w-full md:justify-center justify-start overflow-x-auto">
               <button
                 onClick={() => scrollToSection(ourStoryRef, "our-story")}
                 className={`whitespace-nowrap px-4 py-2 font-medium transition-all duration-200 ${

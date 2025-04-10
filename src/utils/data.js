@@ -468,7 +468,12 @@ export const leftSideMenuLinks = [
 ];
 
 export const rightSideMenuLinks = [
-  { id: "RealEstate", title: "Real Estate", label: "Real Estate", link: "" },
+  {
+    id: "RealEstate",
+    title: "Real Estate",
+    label: "Real Estate",
+    link: "/services",
+  },
   {
     id: "LogisticsWarehousingFulfillment",
     title: "Logistics, Warehousing & Fulfillment",

@@ -12,7 +12,14 @@ import MobileMenu from "./MobileMenu";
 import { analytics } from "../assets/icons";
 import NavDropdown from "./NavDropdown";
 
-const Navbar = ({ nav }) => {
+const Navbar = ({
+  nav,
+  scrollToSection,
+  ourStoryRef,
+  ourEssenceRef,
+  timelineRef,
+  ourTeamRef,
+}) => {
   // Selected Subsidiary
   const [selectedItem, setSelectedItem] = useState(null);
 
@@ -74,12 +81,32 @@ const Navbar = ({ nav }) => {
   // End of function to handle input change
 
   // Close search menu menu
-  const closeSearchMenu = (e) => {
+  const closeSearchMenu = (e, type, action, item) => {
+    console.log(e, type, action, item);
+
     // Prevent event bubbling
     e.stopPropagation();
 
     // Set search menu visibility state to true
     setIsSearchMenuOpen(false);
+
+    console.log(item?.id);
+
+    if (type === "subSection") {
+      if (item?.id === "RealEstate") {
+        ourStoryRef.current.scrollIntoView({ behavior: "smooth" });
+        // action(ourStoryRef, "our-story");
+      }
+      if (item?.id === "LogisticsWarehousingFulfillment") {
+        action(ourEssenceRef, "our-essence");
+      }
+      if (item?.id === "Hospitality") {
+        action(ourTeamRef, "our-essence");
+      }
+      if (item?.id === "FinancialServices") {
+        action(timelineRef, "timeline");
+      }
+    }
   };
   // End of function to close search menu
 
@@ -271,6 +298,7 @@ const Navbar = ({ nav }) => {
                         return (
                           <Link
                             to={item?.link}
+                            onClick={(e) => closeSearchMenu(e)}
                             className="font-medium w-fit uppercase hover:text-slate-600 cursor-pointer tracking-widest"
                           >
                             {item?.label}
@@ -290,9 +318,20 @@ const Navbar = ({ nav }) => {
                     <div className="flex flex-col gap-6">
                       {rightSideMenuLinks?.map((item) => {
                         return (
-                          <div className="w-fit uppercase font-medium hover:text-slate-600 cursor-pointer tracking-widest">
+                          <Link
+                            to={item?.link}
+                            onClick={(e) =>
+                              closeSearchMenu(
+                                e,
+                                "subSection",
+                                scrollToSection,
+                                item
+                              )
+                            }
+                            className="font-medium w-fit uppercase hover:text-slate-600 cursor-pointer tracking-widest"
+                          >
                             {item?.label}
-                          </div>
+                          </Link>
                         );
                       })}
                     </div>
