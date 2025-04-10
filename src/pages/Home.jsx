@@ -54,6 +54,7 @@ const Home = ({
 
       {/* Projects section */}
       <Carousel
+        showTextBeforeHover={true}
         items={[
           {
             id: 1,

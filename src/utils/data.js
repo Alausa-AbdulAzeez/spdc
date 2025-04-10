@@ -118,7 +118,7 @@ export const navbarData = [
   },
   {
     title: "Investor Relations",
-    url: "/investorRelations",
+    url: "/",
     id: "investorRelations",
     type: "newLink",
   },

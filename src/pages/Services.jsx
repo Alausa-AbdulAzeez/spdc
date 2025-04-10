@@ -23,7 +23,7 @@ const Services = ({
   const [pageConfig, setPageConfig] = useState({
     bgImage2: essense,
     bgImage: servicesHero,
-    header: "Our Serices",
+    header: "Our Services",
   });
 
   const [scrollY, setScrollY] = useState(0);
