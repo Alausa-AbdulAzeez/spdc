@@ -61,6 +61,7 @@ const App = () => {
               ourTeamRef={ourTeamRef}
               setActiveSection={setActiveSection}
               timelineRef={timelineRef}
+              scrollToSection={scrollToSection}
             />
           }
         />

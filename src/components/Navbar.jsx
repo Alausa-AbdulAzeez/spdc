@@ -177,7 +177,7 @@ const Navbar = ({
           nav === "transparent" ? "bg-transparent" : "bg-white"
         }`}
       >
-        <div className="h-full app__container w-full bg-transparent px-2 lg:px-[48px] lg:pr-[100px] flex items-center justify-between">
+        <div className="h-full app__container w-full bg-transparent px-5 lg:px-[48px] lg:pr-[100px] flex items-center justify-between">
           {/* LHS (LOGO) */}
           <div className="flex  items-center gap-10">
             {/* LHS (LOGO) */}
