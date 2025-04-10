@@ -28,7 +28,15 @@ const images = [
   hero10,
 ];
 
-export default function Hero() {
+export default function Hero({
+  activeSection,
+  setActiveSection,
+  ourEssenceRef,
+  ourStoryRef,
+  ourTeamRef,
+  timelineRef,
+  scrollToSection,
+}) {
   const [index, setIndex] = useState(0);
   const texts = [
     "Architectural Design",
@@ -78,7 +86,14 @@ export default function Hero() {
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
-      <Navbar nav={"transparent"} />
+      <Navbar
+        nav={"transparent"}
+        ourStoryRef={ourStoryRef}
+        ourEssenceRef={ourEssenceRef}
+        ourTeamRef={ourTeamRef}
+        timelineRef={timelineRef}
+        scrollToSection={scrollToSection}
+      />
 
       {/* Image Carousel Container */}
       <div className="absolute inset-0">

@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Footer, Navbar, SubpageHero } from "../components";
 
-const Contact = () => {
+const Contact = ({
+  activeSection,
+  setActiveSection,
+  ourEssenceRef,
+  ourStoryRef,
+  ourTeamRef,
+  timelineRef,
+  scrollToSection,
+}) => {
   const [pageConfig, setPageConfig] = useState({
     bgImage:
       "https://images.pexels.com/photos/207456/pexels-photo-207456.jpeg?auto=compress&cs=tinysrgb&w=6000",
@@ -61,7 +69,14 @@ const Contact = () => {
   return (
     <div className="z-10 relative bg-white">
       {/* Main navbar */}
-      <Navbar nav={"transparent"} />
+      <Navbar
+        nav={"transparent"}
+        ourStoryRef={ourStoryRef}
+        ourEssenceRef={ourEssenceRef}
+        ourTeamRef={ourTeamRef}
+        timelineRef={timelineRef}
+        scrollToSection={scrollToSection}
+      />
 
       {/* Hero section */}
       <SubpageHero

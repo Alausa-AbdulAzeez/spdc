@@ -29,11 +29,25 @@ import {
   victoriaCourt,
 } from "../assets/images";
 
-const Home = () => {
+const Home = ({
+  activeSection,
+  setActiveSection,
+  ourEssenceRef,
+  ourStoryRef,
+  ourTeamRef,
+  timelineRef,
+  scrollToSection,
+}) => {
   return (
     <div className="z-10 relative bg-white overflow-x-hidden">
       {/* Hero section */}
-      <Hero />
+      <Hero
+        ourStoryRef={ourStoryRef}
+        ourEssenceRef={ourEssenceRef}
+        ourTeamRef={ourTeamRef}
+        timelineRef={timelineRef}
+        scrollToSection={scrollToSection}
+      />
 
       {/* About section */}
       <About />

@@ -35,7 +35,20 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              activeSection={activeSection}
+              ourEssenceRef={ourEssenceRef}
+              ourStoryRef={ourStoryRef}
+              ourTeamRef={ourTeamRef}
+              setActiveSection={setActiveSection}
+              timelineRef={timelineRef}
+              scrollToSection={scrollToSection}
+            />
+          }
+        />
 
         {/* About Page */}
         <Route
