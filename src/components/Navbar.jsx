@@ -92,21 +92,23 @@ const Navbar = ({
 
     console.log(item?.id);
 
-    if (type === "subSection") {
-      if (item?.id === "RealEstate") {
-        ourStoryRef.current.scrollIntoView({ behavior: "smooth" });
-        // action(ourStoryRef, "our-story");
+    setTimeout(() => {
+      console.log("scroll now", type, item?.id);
+      if (type === "subSection") {
+        if (item?.id === "RealEstate") {
+          action(ourStoryRef, "our-story");
+        }
+        if (item?.id === "LogisticsWarehousingFulfillment") {
+          action(ourEssenceRef, "our-essence");
+        }
+        if (item?.id === "Hospitality") {
+          action(ourTeamRef, "our-essence");
+        }
+        if (item?.id === "FinancialServices") {
+          action(timelineRef, "timeline");
+        }
       }
-      if (item?.id === "LogisticsWarehousingFulfillment") {
-        action(ourEssenceRef, "our-essence");
-      }
-      if (item?.id === "Hospitality") {
-        action(ourTeamRef, "our-essence");
-      }
-      if (item?.id === "FinancialServices") {
-        action(timelineRef, "timeline");
-      }
-    }
+    }, 200);
   };
   // End of function to close search menu
 

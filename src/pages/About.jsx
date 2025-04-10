@@ -2,35 +2,27 @@ import React, { useEffect, useState, useRef } from "react";
 import { Footer, Navbar, SubpageHero } from "../components";
 import { ceo, essense, essesce2 } from "../assets/images";
 
-const About = () => {
+const About = ({
+  activeSection,
+  setActiveSection,
+  ourEssenceRef,
+  ourStoryRef,
+  ourTeamRef,
+  timelineRef,
+  scrollToSection,
+}) => {
   const [pageConfig, setPageConfig] = useState({
     bgImage2: essense,
     bgImage: essesce2,
     header: "About Us",
   });
 
-  // Refs for each section
-  const ourStoryRef = useRef(null);
-  const ourVisionRef = useRef(null);
-  const ourEssenceRef = useRef(null);
-  const ourTeamRef = useRef(null);
-  const timelineRef = useRef(null);
-  const ourValuesRef = useRef(null);
-
-  // Active section tracker
-  const [activeSection, setActiveSection] = useState("our-story");
   const [scrollY, setScrollY] = useState(0);
 
   // Smooth scroll to top on initial load
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-
-  // Function to scroll to a specific section
-  const scrollToSection = (sectionRef, sectionId) => {
-    sectionRef.current.scrollIntoView({ behavior: "smooth" });
-    setActiveSection(sectionId);
-  };
 
   // Check which section is in view
   useEffect(() => {
